@@ -1,0 +1,10 @@
+Number = 108 jalapenos 
+Average weight = 1.38oz
+Peppers per pound = 11.59
+Price = $1.79/lb or $0.154/each
+mild = 36 peppers
+medium = 36 peppers 
+hot = 36 peppers 
+training_set = 72 (24 mild, 24 medium, 24 hot)
+validation_set = 18 (6 mild, 6 medium, 6 hot)
+test_set = 18 (6 mild, 6 medium, 6 hot)
