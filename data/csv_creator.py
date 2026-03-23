@@ -2,9 +2,9 @@ def add_side(str):
   temp = str
   for i in range(2):
     if i == 0:
-      str += "_side1.jpg, "
+      str += "_a.jpg, "
     else:
-      str += temp + "_side2.jpg"
+      str += temp + "_b.jpg"
   return str
 
 def create_csv():
