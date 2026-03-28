@@ -2,7 +2,11 @@
 
 ![Gradio GUI](img/gradio_gui.png)
 
-A convolutional neural network (CNN) that classifies jalapeño peppers into three heat categories — **Hot**, **Medium**, or **Mild** — from a single photo. Upload an image of your jalapeño and get an instant prediction with confidence score via an interactive Gradio web interface.
+A convolutional neural network (CNN) that classifies jalapeño peppers into three heat categories — **Hot**, **Medium**, or **Mild** — from a single photo. Upload an image of your jalapeño and get an instant prediction with confidence score via an interactive Gradio web interface. 
+This project is still a work in progress as the image files need 
+some reorganization along with picking the train/validate/test 
+myself instead of allowing tensorflow to pick. I would consider the 
+current level of accuracy to be medium to low. 
 
 ---
 
@@ -35,14 +39,13 @@ Images are resized to **180x180 pixels** and normalized before being passed thro
 Install dependencies using pip or your preferred package manager:
 
 ```bash
-pip install tensorflow gradio numpy
+pip install tensorflow gradio
 ```
 
 | Package | Purpose |
 |---------|---------|
 | `tensorflow` | Model training and inference |
 | `gradio` | Web-based GUI |
-| `numpy` | Array manipulation |
 
 Python **3.10** is recommended.
 
@@ -53,9 +56,9 @@ Python **3.10** is recommended.
 ```
 jalapeno-predictor/
 ├── img/
-│   ├── Hot/          # Training images - hot jalapeños
-│   ├── Mild/         # Training images - mild jalapeños
-│   ├── medium/       # Training images - medium jalapeños
+│   ├── hot/          # Training images - hot jalapeños
+│   ├── medium/         # Training images - medium jalapeños
+│   ├── mild/       # Training images - mild jalapeños
 │   └── gradio_gui.png
 ├── main.ipynb        # Model training notebook
 ├── main.py           # Gradio app

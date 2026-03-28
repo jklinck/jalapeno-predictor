@@ -2,8 +2,8 @@ import gradio as gr
 import base64
 import tensorflow as tf
 
-model = tf.keras.models.load_model('model.h5')
-class_names = ['Hot', 'Mild', 'medium']
+model = tf.keras.models.load_model('model.keras')
+class_names = ['hot', 'mild', 'medium']
 
 def upload_your_jalapeno(img):
     if img is not None:
