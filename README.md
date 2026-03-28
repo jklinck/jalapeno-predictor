@@ -2,11 +2,9 @@
 
 ![Gradio GUI](img/gradio_gui.png)
 
-A convolutional neural network (CNN) that classifies jalapeño peppers into three heat categories — **Hot**, **Medium**, or **Mild** — from a single photo. Upload an image of your jalapeño and get an instant prediction with confidence score via an interactive Gradio web interface. 
-This project is still a work in progress as the image files need 
-some reorganization along with picking the train/validate/test 
-myself instead of allowing tensorflow to pick. I would consider the 
-current level of accuracy to be medium to low. 
+A convolutional neural network (CNN) that classifies jalapeño peppers into three heat categories — **hot**, **medium**, or **mild** — from a single photo. Upload an image of your jalapeño and get an instant prediction with confidence score via an interactive Gradio web interface. 
+This project is still a work in progress as the image files need some reorganization along with picking the train/validate/test 
+myself instead of allowing tensorflow to pick. I would consider the current level of accuracy to be medium. 
 
 ---
 
@@ -16,9 +14,9 @@ The model is a CNN trained on labeled jalapeño images organized into three clas
 
 | Class | Description |
 |-------|-------------|
-| Hot | High capsaicin, visually mature peppers |
-| Medium | Moderate heat level |
-| Mild | Low heat, typically less mature peppers |
+| hot | High capsaicin, visually mature peppers |
+| medium | Moderate heat level |
+| mild | Low heat, typically less mature peppers |
 
 Images are resized to **180x180 pixels** and normalized before being passed through the network. The model outputs a softmax probability across the three classes, and the highest confidence prediction is returned.
 
@@ -31,6 +29,8 @@ Images are resized to **180x180 pixels** and normalized before being passed thro
 - Fully connected Dense layer (128 units, ReLU)
 - Dropout (0.3)
 - Output: Dense layer (3 units, Softmax)
+
+I tested other augmentation layers such as GaussianNoise, zoom and rotation and found all of them degrade the accuracy of the model. 
 
 ---
 
