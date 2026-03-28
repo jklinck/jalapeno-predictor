@@ -3,12 +3,16 @@ import base64
 import tensorflow as tf
 
 model = tf.keras.models.load_model('model.h5')
+class_names = ['Hot', 'Mild', 'medium']
 
 def upload_your_jalapeno(img):
     if img is not None:
-        image = image.reshape((1,28,28,1)).astype('float') / 255
-        prediction = model.predict(image)
-        return prediction
+        img = tf.image.resize(img, [180, 180]).numpy()
+        img = img.reshape((1,180,180,3)).astype('float') / 255
+        prediction = model.predict(img)
+        predicted_index = prediction[0].argmax()
+        confidence = prediction[0][predicted_index] * 100
+        return f"{class_names[predicted_index]} ({confidence:.1f}% confidence)"
     else:
         return "Please upload a jalapeño photo."
 
@@ -24,9 +28,9 @@ with open("img/Hot/P065_a.JPG", "rb") as f:
 with open("img/medium/P037_a.JPG", "rb") as f:
     img_data4 = base64.b64encode(f.read()).decode("utf-8")
 
-with gr.Blocks() as demo:
+with gr.Blocks(css="body, .gradio-container { background-color: #E5FFCC !important; }") as demo:
     gr.HTML("<h1 style='text-align:center; color:red;'>How hot is your jalapeño!!</h1>")
-    inp = gr.Image()
+    inp = gr.Image(height=200)
     out = gr.Textbox()
     inp.change(fn=upload_your_jalapeno, inputs=inp, outputs=out)
     gr.HTML(f"""
