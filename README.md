@@ -62,7 +62,7 @@ jalapeno-predictor/
 │   └── gradio_gui.png
 ├── main.ipynb        # Model training notebook
 ├── main.py           # Gradio app
-├── model.h5          # Saved trained model
+├── model.keras          # Saved trained model
 └── README.md
 ```
 
@@ -74,7 +74,7 @@ Open and run `main.ipynb`. The notebook will:
 
 1. Load images from the `img/` directory using an 80/20 train/validation split
 2. Train the CNN for 15 epochs
-3. Save the trained model as `model.h5`
+3. Save the trained model as `model.keras`
 
 ---
 
@@ -94,4 +94,5 @@ medium (44.1% confidence)
 
 ## Dataset
 
-197 labeled jalapeño images split across three classes, sourced and organized locally. The dataset is divided automatically by TensorFlow's `image_dataset_from_directory` utility.
+197 labeled jalapeño images split across three classes, sourced and organized locally. The dataset is divided automatically by TensorFlow's `image_dataset_from_directory` utility. I was unable to find a good dataset and thus I created this one organically by purchasing peppers at 
+multiple grocery stores. They were picked based upon my years of experience cooking with hot peppers and categorized according to my interpretation of what constitutes a hot, medium or mild pepper. 
