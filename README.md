@@ -30,7 +30,8 @@ Images are resized to **180x180 pixels** and normalized before being passed thro
 - Dropout (0.3)
 - Output: Dense layer (3 units, Softmax)
 
-I tested other augmentation layers such as GaussianNoise, zoom and rotation and found all of them degrade the accuracy of the model. 
+I tested other augmentation layers such as GaussianNoise, zoom and rotation and found all of them degraded the accuracy of the model. Upon 
+photo reorginzation I will test them again for further updates of the model.
 
 ---
 
@@ -95,4 +96,5 @@ medium (44.1% confidence)
 ## Dataset
 
 197 labeled jalapeño images split across three classes, sourced and organized locally. The dataset is divided automatically by TensorFlow's `image_dataset_from_directory` utility. I was unable to find a good dataset and thus I created this one organically by purchasing peppers at 
-multiple grocery stores. They were picked based upon my years of experience cooking with hot peppers and categorized according to my interpretation of what constitutes a hot, medium or mild pepper. 
+multiple grocery stores. They were picked based upon my years of experience cooking with hot peppers and categorized according to my interpretation of what constitutes a hot, medium or mild pepper. I also learned quit a lot about photography (I am a complete novice) and 
+created a photo box in order to control light and shadows for taking the best possible pictures and creating a good dataset.

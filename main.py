@@ -2,7 +2,7 @@ import gradio as gr
 import base64
 import tensorflow as tf
 
-model = tf.keras.models.load_model('model.keras')
+model = tf.keras.models.load_model('transfer_learning_model.keras')
 class_names = ['hot', 'mild', 'medium']
 
 def upload_your_jalapeno(img):
