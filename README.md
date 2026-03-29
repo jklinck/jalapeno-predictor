@@ -25,7 +25,8 @@ Images are resized to **180x180 pixels** and normalized before being passed thro
 - Input: 180x180 RGB image
 - Rescaling (1/255 normalization)
 - Random horizontal flip (data augmentation)
-- 3x Conv2D layers (32, 64, 128 filters) with ReLU and MaxPooling
+- Base model from imagenet (via transfer learning)
+- GlobalAveragePooling2D
 - Fully connected Dense layer (128 units, ReLU)
 - Dropout (0.3)
 - Output: Dense layer (3 units, Softmax)
@@ -56,14 +57,20 @@ Python **3.10** is recommended.
 
 ```
 jalapeno-predictor/
+├── data/
+│   ├── csv_creator.py.  # For creating csv file
+│   ├── info.txt         # General information about peppers
+│   ├── labels.csv       # Labeled CSV file of all peppers
 ├── img/
 │   ├── hot/          # Training images - hot jalapeños
 │   ├── medium/         # Training images - medium jalapeños
 │   ├── mild/       # Training images - mild jalapeños
 │   └── gradio_gui.png
+│   └── potential_moves.txt  # Idea about data reorganization
 ├── main.ipynb        # Model training notebook
 ├── main.py           # Gradio app
-├── model.keras          # Saved trained model
+|── model.kera     # original model without transfer learning
+├── transfer_learning_model.keras    # Model using transfer learning
 └── README.md
 ```
 
@@ -75,7 +82,7 @@ Open and run `main.ipynb`. The notebook will:
 
 1. Load images from the `img/` directory using an 80/20 train/validation split
 2. Train the CNN for 15 epochs
-3. Save the trained model as `model.keras`
+3. Save the trained model as `transfer_learning_model.keras`
 
 ---
 
