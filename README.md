@@ -51,6 +51,8 @@ pip install tensorflow gradio
 
 Python **3.10** is recommended.
 
+> **Note:** This project was built on macOS. The `tensorflow-macos` and `tensorflow-metal` packages are Mac-only. On Windows or Linux, install `tensorflow` instead.
+
 ---
 
 ## Project Structure
@@ -58,20 +60,23 @@ Python **3.10** is recommended.
 ```
 jalapeno-predictor/
 ├── data/
-│   ├── csv_creator.py.  # For creating csv file
-│   ├── info.txt         # General information about peppers
+│   ├── csv_creator.py   # For creating csv file
 │   ├── labels.csv       # Labeled CSV file of all peppers
 ├── img/
-│   ├── hot/          # Training images - hot jalapeños
-│   ├── medium/         # Training images - medium jalapeños
-│   ├── mild/       # Training images - mild jalapeños
+│   ├── hot/             # Training images - hot jalapeños
+│   ├── medium/          # Training images - medium jalapeños
+│   ├── mild/            # Training images - mild jalapeños
 │   └── gradio_gui.png
-│   └── potential_moves.txt  # Idea about data reorganization
-├── main.ipynb        # Model training notebook
-├── main.py           # Gradio app
-|── model.kera     # original model without transfer learning
-├── transfer_learning_model.keras    # Model using transfer learning
-└── README.md
+├── models/
+│   └── mobilenetv2_model.keras
+├── notebooks/
+│   ├── main.ipynb       # original model training notebook
+│   └── mobilenetv2.ipynb
+├── src/
+│   └── main.py
+├── LICENSE
+├── README.md
+└── requirements.txt
 ```
 
 ---
@@ -89,7 +94,7 @@ Open and run `main.ipynb`. The notebook will:
 ## Running the App
 
 ```bash
-python3 main.py
+python3 src/main.py
 ```
 
 Then open the local URL printed in your terminal (e.g. `http://127.0.0.1:7860`). Upload a photo of a jalapeño and the model will return a prediction like:
