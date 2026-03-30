@@ -2,7 +2,7 @@
 
 ![Gradio GUI](img/gradio_gui.png)
 
-A convolutional neural network (CNN) that classifies jalapeño peppers into three heat categories — **hot**, **medium**, or **mild** — from a single photo. Upload an image of your jalapeño and get an instant prediction with confidence score via an interactive Gradio web interface. 
+A transfer learning model that classifies jalapeño peppers into three heat categories — **hot**, **medium**, or **mild** — from a single photo. Upload an image of your jalapeño and get an instant prediction with confidence score via an interactive Gradio web interface. 
 This project is still a work in progress as the image files need some reorganization along with picking the train/validate/test 
 myself instead of allowing tensorflow to pick. I would consider the current level of accuracy to be medium. 
 
