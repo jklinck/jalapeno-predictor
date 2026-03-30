@@ -90,7 +90,7 @@ jalapeno-predictor/
 Open and run `mobilenetv2.ipynb` from the notebooks directory. The notebook will:
 
 1. Load images from the `img/` directory using an 80/20 train/validation split
-2. Train the CNN for 15 epochs
+2. Train the model for 15 epochs
 3. Save the trained model as `models/mobilenetv2_model.keras`
 
 ---
