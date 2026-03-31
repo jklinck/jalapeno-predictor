@@ -3,8 +3,6 @@
 ![Gradio GUI](img/gradio_gui.png)
 
 A transfer learning model that classifies jalapeño peppers into three heat categories — **hot**, **medium**, or **mild** — from a single photo. Upload an image of your jalapeño and get an instant prediction with confidence score via an interactive Gradio web interface. 
-This project is still a work in progress as the image files need some reorganization along with picking the train/validate/test 
-myself instead of allowing tensorflow to pick. I would consider the current level of accuracy to be medium. 
 
 ---
 
@@ -31,8 +29,7 @@ Images are resized to **180x180 pixels** and normalized before being passed thro
 - Dropout (0.3)
 - Output: Dense layer (3 units, Softmax)
 
-I tested other augmentation layers such as GaussianNoise, zoom and rotation and found all of them degraded the accuracy of the model. Upon 
-photo reorganzation I will test them again for further updates of the model.
+I tested other augmentation layers such as GaussianNoise, zoom and rotation and found all of them degraded the accuracy of the model. Once I add more images I will test them again for further updates of the model.
 
 ---
 
@@ -67,14 +64,18 @@ jalapeno-predictor/
 │   ├── csv_creator.py   # For creating csv file
 │   ├── labels.csv       # Labeled CSV file of all peppers
 ├── img/
-│   ├── hot/             # Training images - hot jalapeños
-│   ├── medium/          # Training images - medium jalapeños
-│   ├── mild/            # Training images - mild jalapeños
+│   ├── train/             # Training images 
+|       |—— hot/
+|       |—— medium/
+|       |—— mild/
+│   ├── validate/            # Validation images 
+|       |—— hot/
+|       |—— medium/
+|       |—— mild/
 │   └── gradio_gui.png
 ├── models/
 │   └── mobilenetv2_model.keras
 ├── notebooks/
-│   ├── main.ipynb       # original model training notebook
 │   └── mobilenetv2.ipynb
 ├── src/
 │   └── main.py
@@ -89,7 +90,7 @@ jalapeno-predictor/
 
 Open and run `mobilenetv2.ipynb` from the notebooks directory. The notebook will:
 
-1. Load images from the `img/` directory using an 80/20 train/validation split
+1. Load images from manually curated `img/train` and `img/validate` directories (80/20 split)
 2. Train the model for 15 epochs
 3. Save the trained model as `models/mobilenetv2_model.keras`
 
@@ -111,6 +112,5 @@ medium (44.1% confidence)
 
 ## Dataset
 
-197 labeled jalapeño images split across three classes, sourced and organized locally. The dataset is divided automatically by TensorFlow's `image_dataset_from_directory` utility. I was unable to find a good dataset and thus I created this one organically by purchasing peppers at 
-multiple grocery stores. They were picked based upon my years of experience cooking with hot peppers and categorized according to my interpretation of what constitutes a hot, medium or mild pepper. I also learned quite a lot about photography (I am a complete novice) and 
-created a photo box in order to control light and shadows for taking the best possible pictures and creating a good dataset.
+203 labeled jalapeño images split across three classes, sourced and organized locally. I was unable to find a good dataset and thus I created this one organically by purchasing peppers at 
+multiple grocery stores. They were picked based upon my years of experience cooking with hot peppers and categorized according to my interpretation of what constitutes a hot, medium or mild pepper. I also learned quite a lot about photography (I am a complete novice) and created a photo box in order to control light and shadows for taking the best possible pictures and creating a good dataset.
