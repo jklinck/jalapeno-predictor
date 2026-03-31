@@ -60,18 +60,15 @@ Python **3.10** is recommended.
 
 ```
 jalapeno-predictor/
-├── data/
-│   ├── csv_creator.py   # For creating csv file
-│   ├── labels.csv       # Labeled CSV file of all peppers
 ├── img/
 │   ├── train/             # Training images 
-|       |—— hot/
-|       |—— medium/
-|       |—— mild/
-│   ├── validate/            # Validation images 
-|       |—— hot/
-|       |—— medium/
-|       |—— mild/
+│   │   ├── hot/
+│   │   ├── medium/
+│   │   └── mild/
+│   ├── validate/          # Validation images 
+│   │   ├── hot/
+│   │   ├── medium/
+│   │   └── mild/
 │   └── gradio_gui.png
 ├── models/
 │   └── mobilenetv2_model.keras
