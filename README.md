@@ -4,6 +4,8 @@
 
 A transfer learning model that classifies jalapeño peppers into three heat categories — **hot**, **medium**, or **mild** — from a single photo. Upload an image of your jalapeño and get an instant prediction with confidence score via an interactive Gradio web interface. 
 
+> **Note:** Jalapeño heat levels are visually graded and not an exact science. A pepper's appearance does not always correlate with its actual heat level. Predictions should be treated as estimates only.
+
 ---
 
 ## How It Works
