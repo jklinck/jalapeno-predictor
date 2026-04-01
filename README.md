@@ -87,6 +87,8 @@ jalapeno-predictor/
 
 ## Training the Model
 
+> **Note:** A pre-trained model is included in `models/`. If you just want to run the app, skip to [Running the App](#running-the-app).
+
 Open and run `mobilenetv2.ipynb` from the notebooks directory. The notebook will:
 
 1. Load images from manually curated `img/train` and `img/validate` directories (80/20 split)
