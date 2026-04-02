@@ -15,18 +15,14 @@ def upload_your_jalapeno(img):
         return f"{class_names[predicted_index]} ({confidence:.1f}% confidence)"
     else:
         return "Please upload a jalapeño photo."
+    
+image_paths = ["img/validate/mild/P001_a.jpg", "img/train/medium/P037_a.jpg", 
+               "img/validate/hot/P065_a.jpg", "img/validate/hot/P065_a.jpg"]
 
-with open("img/validate/mild/P001_a.jpg", "rb") as f:
-    img_data1 = base64.b64encode(f.read()).decode("utf-8")
-
-with open("img/validate/hot/P064_a.jpg", "rb") as f:
-    img_data2 = base64.b64encode(f.read()).decode("utf-8")
-
-with open("img/validate/hot/P065_a.jpg", "rb") as f:
-    img_data3 = base64.b64encode(f.read()).decode("utf-8")
-
-with open("img/train/medium/P037_a.jpg", "rb") as f:
-    img_data4 = base64.b64encode(f.read()).decode("utf-8")
+img_data = []
+for path in image_paths:
+    with open(path, "rb") as f:
+        img_data.append(base64.b64encode(f.read()).decode("utf-8"))
 
 with gr.Blocks(css="body, .gradio-container { background-color: #E5FFCC !important; }") as demo:
     gr.HTML("<h1 style='text-align:center; color:red;'>How hot is your jalapeño!!</h1>")
@@ -35,10 +31,10 @@ with gr.Blocks(css="body, .gradio-container { background-color: #E5FFCC !importa
     inp.change(fn=upload_your_jalapeno, inputs=inp, outputs=out)
     gr.HTML(f"""
     <div style="display:flex; gap:10px;">
-        <img src='data:image/jpeg;base64,{img_data1}' width='300'>
-        <img src='data:image/jpeg;base64,{img_data4}' width='300'>
-        <img src='data:image/jpeg;base64,{img_data3}' width='300'>
-        <img src='data:image/jpeg;base64,{img_data2}' width='300'>
+        <img src='data:image/jpeg;base64,{img_data[0]}' width='300'>
+        <img src='data:image/jpeg;base64,{img_data[1]}' width='300'>
+        <img src='data:image/jpeg;base64,{img_data[2]}' width='300'>
+        <img src='data:image/jpeg;base64,{img_data[3]}' width='300'>
     </div>
 """)
 demo.launch()
