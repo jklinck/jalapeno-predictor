@@ -1,0 +1,19 @@
+[project]
+name = "jalapeno-predictor"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Joe Klinck",email = "jklinck76@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "tensorflow-macos (>=2.16.2,<3.0.0)",
+    "tensorflow-metal (>=1.2.0,<2.0.0)",
+    "gradio (>=6.10.0,<7.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
