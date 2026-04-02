@@ -16,16 +16,16 @@ def upload_your_jalapeno(img):
     else:
         return "Please upload a jalapeño photo."
 
-with open("img/Mild/P001_a.JPG", "rb") as f:
+with open("img/validate/mild/P001_a.jpg", "rb") as f:
     img_data1 = base64.b64encode(f.read()).decode("utf-8")
 
-with open("img/Hot/P064_a.JPG", "rb") as f:
+with open("img/validate/hot/P064_a.jpg", "rb") as f:
     img_data2 = base64.b64encode(f.read()).decode("utf-8")
 
-with open("img/Hot/P065_a.JPG", "rb") as f:
+with open("img/validate/hot/P065_a.jpg", "rb") as f:
     img_data3 = base64.b64encode(f.read()).decode("utf-8")
 
-with open("img/medium/P037_a.JPG", "rb") as f:
+with open("img/train/medium/P037_a.jpg", "rb") as f:
     img_data4 = base64.b64encode(f.read()).decode("utf-8")
 
 with gr.Blocks(css="body, .gradio-container { background-color: #E5FFCC !important; }") as demo:
