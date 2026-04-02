@@ -38,24 +38,28 @@ photo reorganzation I will test them again for further updates of the model.
 
 ## Dependencies
 
-Install dependencies using pip or your preferred package manager:
-
-**macOS:**
+**macOS — with Poetry:**
 ```bash
-pip install tensorflow-macos tensorflow-metal gradio
+poetry install
 ```
 
-**Windows / Linux:**
+**macOS — with pip:**
+```bash
+pip install tensorflow-macos==2.16.2 tensorflow-metal==1.2.0 gradio==6.10.0
+```
+
+**Windows / Linux — with pip:**
 ```bash
 pip install tensorflow gradio
 ```
 
-| Package | Purpose |
-|---------|---------|
-| `tensorflow-macos` / `tensorflow` | Model training and inference |
-| `gradio` | Web-based GUI |
+| Package | Version | Purpose |
+|---------|---------|---------|
+| `tensorflow-macos` / `tensorflow` | 2.16.2 | Model training and inference |
+| `tensorflow-metal` | 1.2.0 | Mac GPU acceleration |
+| `gradio` | 6.10.0 | Web-based GUI |
 
-Python **3.10** is recommended.
+Python **3.10** or higher is required.
 
 ---
 
@@ -80,7 +84,8 @@ jalapeno-predictor/
 │   └── main.py
 ├── LICENSE
 ├── README.md
-└── requirements.txt
+├── pyproject.toml
+└── poetry.lock
 ```
 
 ---
