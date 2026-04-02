@@ -16,13 +16,13 @@ def upload_your_jalapeno(img):
     else:
         return "Please upload a jalapeño photo."
 
-with open("img/Mild/P001_a.JPG", "rb") as f:
+with open("img/mild/P001_a.JPG", "rb") as f:
     img_data1 = base64.b64encode(f.read()).decode("utf-8")
 
-with open("img/Hot/P064_a.JPG", "rb") as f:
+with open("img/hot/P064_a.JPG", "rb") as f:
     img_data2 = base64.b64encode(f.read()).decode("utf-8")
 
-with open("img/Hot/P065_a.JPG", "rb") as f:
+with open("img/hot/P065_a.JPG", "rb") as f:
     img_data3 = base64.b64encode(f.read()).decode("utf-8")
 
 with open("img/medium/P037_a.JPG", "rb") as f:
