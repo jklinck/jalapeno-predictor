@@ -2,13 +2,18 @@ import gradio as gr
 import base64
 import tensorflow as tf
 
+@tf.keras.utils.register_keras_serializable()
+class MobileNetV2Preprocess(tf.keras.layers.Layer):
+    def call(self, x):
+        return tf.keras.applications.mobilenet_v2.preprocess_input(x)
+
 model = tf.keras.models.load_model('models/mobilenetv2_model.keras')
 class_names = ['hot', 'medium', 'mild']
 
 def upload_your_jalapeno(img):
     if img is not None:
         img = tf.image.resize(img, [180, 180]).numpy()
-        img = img.reshape((1,180,180,3)).astype('float') / 255
+        img = img.reshape((1,180,180,3)).astype('float')
         prediction = model.predict(img)
         predicted_index = prediction[0].argmax()
         confidence = prediction[0][predicted_index] * 100
