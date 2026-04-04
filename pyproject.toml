@@ -6,14 +6,23 @@ authors = [
     {name = "Joe Klinck",email = "jklinck76@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.10,<3.14"
 dependencies = [
     "tensorflow-macos (>=2.16.2,<3.0.0)",
     "tensorflow-metal (>=1.2.0,<2.0.0)",
-    "gradio (>=6.10.0,<7.0.0)"
+    "gradio (>=6.10.0,<7.0.0)",
+    "torch (>=2.11.0,<3.0.0)",
+    "torchvision (>=0.26.0,<0.27.0)",
+    "mlflow (>=3.10.1,<4.0.0)",
+    "optuna (>=4.8.0,<5.0.0)",
+    "matplotlib (>=3.10.8,<4.0.0)"
 ]
 
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^7.2.0"
+

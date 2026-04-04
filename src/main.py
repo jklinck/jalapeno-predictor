@@ -3,7 +3,7 @@ import base64
 import tensorflow as tf
 
 model = tf.keras.models.load_model('models/mobilenetv2_model.keras')
-class_names = ['hot', 'mild', 'medium']
+class_names = ['hot', 'medium', 'mild']
 
 def upload_your_jalapeno(img):
     if img is not None:
@@ -37,4 +37,5 @@ with gr.Blocks(css="body, .gradio-container { background-color: #E5FFCC !importa
         <img src='data:image/jpeg;base64,{img_data[3]}' width='300'>
     </div>
 """)
+    
 demo.launch()
