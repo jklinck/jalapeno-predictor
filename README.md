@@ -18,13 +18,13 @@ The model is a transfer learning model trained on labeled jalapeño images organ
 | medium | Moderate heat level |
 | mild | Low heat, typically less mature peppers |
 
-Images are resized to **180x180 pixels** and normalized before being passed through the network. The model outputs a softmax probability across the three classes, and the highest confidence prediction is returned.
+Images are resized to **224x224 pixels** and normalized before being passed through the network. The model outputs a softmax probability across the three classes, and the highest confidence prediction is returned.
 
 ### Model Architecture
 
-- Input: 180x180 RGB image
-- Rescaling (1/255 normalization)
+- Input: 224x224 RGB image
 - Random horizontal flip (data augmentation)
+- ImageNet normalization (prepocess_input)
 - MobileNetV2 base model pretrained on ImageNet (frozen, transfer learning)
 - GlobalAveragePooling2D
 - Fully connected Dense layer (128 units, ReLU)
@@ -97,7 +97,7 @@ jalapeno-predictor/
 Open and run `mobilenetv2.ipynb` from the notebooks directory. The notebook will:
 
 1. Load images from manually curated `img/train` and `img/validate` directories (80/20 split)
-2. Train the model for 15 epochs
+2. Train the model for 20 epochs
 3. Save the trained model as `models/mobilenetv2_model.keras`
 
 ---
